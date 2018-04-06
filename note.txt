@@ -1,2 +1,0 @@
-pour andi et jr, on aura besoin d'un zero-extend
-ajouter un mux4
