@@ -19,7 +19,7 @@ begin
 	diff <= a - b;
 	process (a, b, f, shamt, s, diff) begin
 		case f is
-			when "000000" => s <= std_logic_vector(signed(b) sll to_integer(unsigned(shamt)));   -- 00 sll
+			when "000000" => s <= b << shamt;   -- 00 sll
 			when "100000" => s <= a + b;        -- 32 add
 			when "100010" => s <= a - b;        -- 34 sub
 			when "100100" => s <= a and b;      -- 36 and
