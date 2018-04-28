@@ -46,13 +46,14 @@ end process;
 -- check that 720 gets written to address 16
 -- at end of program
 process (clk) begin
-    if (clk'event and clk = '0' and memwrite = '1') then
+    if (clk'event and clk = '0' and reset = '0' and memwrite = '1') then
         if (conv_integer(dataadr) = 16) then
             if (conv_integer(writedata) = 720) then
                 assert false report "Simulation succeeded"
                 severity failure;
             else
                 report "Simulation failed";
+                severity failure;
             end if;
         end if;
     end if;
