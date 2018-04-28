@@ -22,11 +22,11 @@ begin
     		when "000100" => controls <= "000000100000001"; -- BEQ
     		when "001000" => controls <= "100001000000000"; -- ADDI
             when "000010" => controls <= "000000000001000"; -- J
-            when "000010" => controls <= "100010000000010"; -- ANDI
-            when "000010" => controls <= "100010000000011"; -- ORI
-            when "000010" => controls <= "110000001101100"; -- JAL
-            when "000010" => controls <= "100000001000100"; -- LUI
-            when "000010" => controls <= "101100000000000"; -- IndexIntAdr
+            when "001100" => controls <= "100010000000010"; -- ANDI
+            when "001101" => controls <= "100010000000011"; -- ORI
+            when "000011" => controls <= "110000001101100"; -- JAL
+            when "001111" => controls <= "100000001000100"; -- LUI
+            when "010001" => controls <= "101100000000000"; -- IndexIntAdr
     		when others   => controls <= "---------------"; -- illegal op
 	    end case;
     end process;
