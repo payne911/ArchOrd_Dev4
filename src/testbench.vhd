@@ -47,11 +47,13 @@ end process;
 -- at end of program
 process (clk) begin
     if (clk'event and clk = '0' and memwrite = '1') then
-        if (conv_integer(dataadr) = 16 and conv_integer(writedata) = 720) then
-            assert false report "Simulation succeeded"
-            severity failure;
-        else
-            report "Simulation failed";
+        if (conv_integer(dataadr) = 16) then
+            if (conv_integer(writedata) = 720) then
+                assert false report "Simulation succeeded"
+                severity failure;
+            else
+                report "Simulation failed";
+            end if;
         end if;
     end if;
 end process;
