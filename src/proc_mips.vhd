@@ -35,9 +35,9 @@ architecture struct of proc_mips is
 				aluout, writedata: buffer STD_LOGIC_VECTOR (31 downto 0);
 				readdata: in STD_LOGIC_VECTOR (31 downto 0));
 	end component;
-    signal memtoreg, alusrcb, regdst, jump STD_LOGIC_VECTOR (1 downto 0);
+    signal memtoreg, alusrcb, regdst, jump: STD_LOGIC_VECTOR (1 downto 0);
 	signal alusrca, regwrite, pcsrc: STD_LOGIC;
-	signal zero, overflow STD_LOGIC;
+	signal zero, overflow: STD_LOGIC;
 	signal alucontrol: STD_LOGIC_VECTOR (5 downto 0);
 begin
 	cont: controller port map (instr (31 downto 26), instr(5 downto 0), zero, memtoreg,
