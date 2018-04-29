@@ -16,6 +16,7 @@ mult:		sltu	$t6, $t4, $t3			# $t4 < 1?                    - use sltu
 		andi 	$t6, 1				# $t6 == 1? $t6 = 1 : $t6 = 0 - use andi
 		ori 	$t6, 0 				# $t6 == 1? $t6 = 1 : $t6 = 0 - use ori
 		sll	$t6, $t6, 16			# bitshift $t6 de 16          - use sll
+		nop
 		lui	$t7, 1				# $t7 = 0x00010000            - use lui
 		beq	$t6, $t7, not_first_fact	# si $t6 == $t7: j < 1, aller a not_first_fact
 		add	$t0, $t5, $t0			# sinon, on continue la boucle mult	
