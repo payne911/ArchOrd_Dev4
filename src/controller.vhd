@@ -13,7 +13,7 @@ end;
 
 architecture struct of controller is
 	component maindec
-		port (op: in STD_LOGIC_VECTOR (5 downto 0);
+		port (op, funct: in STD_LOGIC_VECTOR (5 downto 0);
                 memtoreg: out STD_LOGIC_VECTOR (1 downto 0);
                 memwrite: out STD_LOGIC;
                 branch, alusrca: out STD_LOGIC;
@@ -30,7 +30,7 @@ architecture struct of controller is
 	signal aluop: STD_LOGIC_VECTOR (2 downto 0);
 	signal branch: STD_LOGIC;
 begin
-	md: maindec port map (op, memtoreg, memwrite, branch, alusrca, alusrcb, regdst, regwrite, jump, aluop);
+	md: maindec port map (op, funct, memtoreg, memwrite, branch, alusrca, alusrcb, regdst, regwrite, jump, aluop);
 	ad: aludec port map (funct, aluop, alucontrol);
 	pcsrc <= branch and zero;
 end;

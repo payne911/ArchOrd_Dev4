@@ -52,7 +52,7 @@ process (clk) begin
                 assert false report "Simulation succeeded"
                 severity failure;
             else
-                report "Simulation failed";
+                report "Simulation failed"
                 severity failure;
             end if;
         end if;

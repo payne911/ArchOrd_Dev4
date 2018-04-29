@@ -1,7 +1,7 @@
 library IEEE; use IEEE.STD_LOGIC_1164.all;
 
 entity maindec is -- main control decoder
-	port (op: in STD_LOGIC_VECTOR (5 downto 0);
+	port (op, funct: in STD_LOGIC_VECTOR (5 downto 0);
 			memtoreg: out STD_LOGIC_VECTOR (1 downto 0);
             memwrite: out STD_LOGIC;
 			branch, alusrca: out STD_LOGIC;
@@ -16,7 +16,11 @@ architecture behave of maindec is
 begin
     process(op) begin
 	    case op is
-		    when "000000" => controls <= "101000000000100"; -- Rtyp
+		    when "000000" =>
+            case funct is
+                when "001000" => controls <= "000000000000100"; -- JR
+                when others   => controls <= "101000000000100"; -- Rtyp
+            end case;
 		    when "100011" => controls <= "100001000100000"; -- LW
             when "101011" => controls <= "000001010000000"; -- SW
     		when "000100" => controls <= "000000100000001"; -- BEQ
