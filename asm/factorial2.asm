@@ -26,7 +26,7 @@ end_fact:	addi	$v0, $t0, 0			# valeur de retour dans $v0
 		jr	$ra
 
 end_prog:	
-		andi 	$t6, 1				# $t6 == 1? $t6 = 1 : $t6 = 0 - use andi
+		andi 	$t6, $0, 0				# $t6 == 1? $t6 = 1 : $t6 = 0 - use andi
 		ori 	$t6, 0 				# $t6 == 1? $t6 = 1 : $t6 = 0 - use ori
 		sll	$t6, $t6, 16			# bitshift $t6 de 16          - use sll
 		lui	$t7, 1				# $t7 = 0x00010000            - use lui
