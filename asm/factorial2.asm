@@ -27,12 +27,12 @@ end_fact:	addi	$v0, $t0, 0			# sauver le resultat dans $v0
 end_prog:	andi 	$t6, $t6, 1			# - use andi : $t6 = 1
 		ori 	$t6, $t6, 0 			# - use ori  : $t6 = 1
 		sll	$t6, $t6, 16			# - use sll  : $t6 = 0x10000
-		lui	$t7, 2				# - use lui  : $t7 = 0x20000
-		beq	$t6, $t7, erratum		# erreur si $t6 == $t7
-		sw	$v0, 0x10010010			# sauver fact(6) a l'adresse 0x0010
+		lui	$t7, 1				# - use lui  : $t7 = 0x10000
+		beq	$t6, $t7, super			# erreur si $t6 != $t7, autrement sauter a super
+		sw	$t6, 0x10010010			# sauver $t6 a l'adresse 0x0010
 		j the_end				# sauter a la fin
 		
-erratum:	sw	$t6, 0x10010010			# sauver $t6 a l'adresse 0x0010
+super:		sw	$v0, 0x10010010			# sauver fact(6) a l'adresse 0x0010
 
 the_end:
 lw	$a0, 0x10010010
