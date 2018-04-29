@@ -49,10 +49,12 @@ begin
         mem(23) := X"35CE0000";
         mem(24) := X"000E7400"; -- sll
         mem(25) := X"3C0F0001";
-        mem(26) := X"11CF0002"; -- last 3 to 2
-        mem(27) := X"AC020010"; -- sw
-		mem(28) := X"08100020";
-		mem(29) := X"AC2E0010"; -- SW
+        mem(26) := X"11CF0003"; -- last 3 to 2
+		mem(27) := X"3C011001"; -- lui
+        mem(28) := X"AC020010"; -- sw
+		mem(29) := X"08100020";
+		mem(30) := X"3C011001"; -- lui
+		mem(31) := X"AC0E0010"; -- SW
 
 	-- read memory
 		rd <= mem(CONV_INTEGER(a));

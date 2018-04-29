@@ -7,7 +7,7 @@ factorial:	addi 	$t0, $a0, 0			# initialiser temporaire $t0 = n
 		addi	$t3, $0, 1			# initialiser constante 1
 		addi	$t5, $t0, 0			# initialiser resultat temporaire a 0
 		addi	$t6, $0, 0			# Valeur retournee par par le slt
-  
+
 for_fact:	addi 	$t4, $t1, 0			# initialiser compteur mult: j = i
 		slt	$t2, $t1, $t3			# j < 1?
 		beq	$t2, 1, end_fact		# si oui, on termine en allant a end_fact
@@ -26,7 +26,7 @@ end_fact:	addi	$v0, $t0, 0			# valeur de retour dans $v0
 		jr	$ra
 
 end_prog:	
-		andi 	$t6, $0, 0				# $t6 == 1? $t6 = 1 : $t6 = 0 - use andi
+		andi 	$t6, $0, 0			# $t6 == 1? $t6 = 1 : $t6 = 0 - use andi
 		ori 	$t6, 0 				# $t6 == 1? $t6 = 1 : $t6 = 0 - use ori
 		sll	$t6, $t6, 16			# bitshift $t6 de 16          - use sll
 		lui	$t7, 1				# $t7 = 0x00010000            - use lui
