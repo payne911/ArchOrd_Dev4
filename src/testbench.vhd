@@ -31,18 +31,6 @@ process begin
 	wait;
 end process;
 
--- -- check that 7 gets written to address 84
--- -- at end of program
--- process (clk) begin
--- 	if (clk'event and clk = '0' and memwrite = '1') then
--- 		if (conv_integer(dataadr) = 84 and conv_integer(writedata) = 7) then
--- 			report "Simulation succeeded";
--- 		elsif (dataadr /= 80) then
--- 			report "Simulation failed";
--- 		end if;
--- 	end if;
--- end process;
-
 -- check that 720 gets written to address 16
 -- at end of program
 process (clk) begin
