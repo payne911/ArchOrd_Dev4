@@ -61,15 +61,15 @@ begin
         mem(21) := X"31CE0001"; -- andi 	$t6, $0, 0
         mem(22) := X"35CE0000"; -- ori 	    $t6, 0
         mem(23) := X"000E7400"; -- sll	    $t6, $t6, 16
-        mem(24) := X"3C0F0001"; -- lui      $t7, 1
-        mem(25) := X"11CF0003"; -- beq	    $t6, $t7, super
+        mem(24) := X"3C0F0002"; -- lui      $t7, 2
+        mem(25) := X"11CF0003"; -- beq	    $t6, $t7, erratum
 		mem(26) := X"3C011001"; -- lui      $at, 0x00001001
-        mem(27) := X"AC0E0010"; -- sw       $t6, 0x00000010($at)
+        mem(27) := X"AC020010"; -- sw       $v0, 0x00000010($at)
 		mem(28) := X"0810001f"; -- j        the_end
 
-        -- super:
+        -- erratum:
         mem(29) := X"3C011001"; -- lui      $at, 0x00001001
-        mem(30) := X"AC020010"; -- sw       $v0, 0x00000010($at)
+        mem(30) := X"AC0E0010"; -- sw       $t6, 0x00000010($at)
 
         -- the_end:
         mem(31) := X"00000000"; -- nop
